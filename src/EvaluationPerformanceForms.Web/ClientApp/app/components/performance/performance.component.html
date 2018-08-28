@@ -1,0 +1,475 @@
+﻿<div class="row">
+    <div class="col-75">
+        <form class="container" [formGroup]="performanceForm">
+            <h1 class="text-center">City of San Antonio</h1>
+            <h2 class="text-center">Employee Performance Evaluation</h2>
+            <h3 class="text-center pbot">Professional Level</h3>
+            <div class="row">
+                <app-basic_info-form></app-basic_info-form>
+                <div class="tcontent">
+                    <!--RATING INSTRUCTIONS-->
+                    <h4 style="font-weight: bold">Rating Descriptions</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>1 - Improvement Needed</th>
+                                <th>2 - Achieves Expectations</th>
+                                <th>3 - Exceeds Expectations</th>
+                                <th>4 - Outstanding </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Does not meet the requirements of the job, task or project. Improvement is needed.</td>
+                                <td>Successfully meets the requirements of the job, task or project. Performance consistently meets standards.</td>
+                                <td>
+                                    Exceeds the
+                                    requirements of the job,
+                                    task or project. Performance is
+                                    characterized by consistent high
+                                    achievement.
+                                </td>
+                                <td>
+                                    Far exceeds the requirements of the
+                                    job, task or project. Performance
+                                    consistently shows outstanding
+                                    achievement far above expectations.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--SECTION 2-->
+                    <h4 style="font-weight: bold">Section II: Responsibilities, Goals, Measures</h4>
+                    <p>(50% of overall rating; evaluation weight assigned)</p>
+                    <div formArrayName="section2" *ngFor="let section of section2.controls; let i=index">
+                        <div [formGroupName]="i">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4">
+                                            Responsibilities, Goals, and Measures: Each entry in this table contains 4 items: A description of the responsibility/goal that includes
+                                            any specific performance metric or project deadline; a specific weight percentage component; a summary of the actual performance
+                                            results; and the rating for this entry.
+                                        </th>
+                                        <th>
+                                            <div class="form-group">
+                                                <button class="btn btn-success"
+                                                        type="button"
+                                                        [disabled]="!section2.valid"
+                                                        (click)="addEntry2()">
+                                                    Add Entry
+                                                </button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Entry: 1</td>
+                                        <!--PERCENTAGE-->
+                                        <td colspan="2">
+                                            <div class="form-group row"
+                                                 [ngClass]="{'has-error': (performanceForm.get('percent')?.touched || performanceForm.get('percent')?.dirty) && !performanceForm.get('percent').valid }">
+                                                <div class="col-50">
+                                                    <label class="control-label"
+                                                           attr.for="{{ 'percentId' + i }}">
+                                                        Item Evaluation Weight Percentage (total of all weights=100%):
+                                                    </label>
+                                                </div>
+                                                <div class="col-50">
+                                                    <input class="input-sm"
+                                                           id="{{ 'percentId' + i }}"
+                                                           type="text"
+                                                           formControlName="percent" />
+                                                </div>
+                                                <span class="help-block" *ngIf="(performanceForm.get('percent')?.touched || performanceForm.get('percent')?.dirty) && performanceForm.get('percent').errors">
+                                                    <span *ngIf="performanceForm.get('percent').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="performanceForm.get('percent').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                        <!--RATING-->
+                                        <td>
+                                            <div class="form-group row"
+                                                 [ngClass]="{'has-error': (performanceForm.get('rating')?.touched || performanceForm.get('rating')?.dirty) && !performanceForm.get('rating').valid }">
+                                                <div class="col-50">
+                                                    <label class="control-label"
+                                                           attr.for="{{ 'ratingId' + i }}">
+                                                        Rating:
+                                                    </label>
+                                                </div>
+                                                <div class="col-50">
+                                                    <input class="input-sm"
+                                                           id="{{ 'ratingId' + i }}"
+                                                           type="text"
+                                                           formControlName="rating" />
+                                                </div>
+                                                <span class="help-block" *ngIf="(performanceForm.get('rating')?.touched || performanceForm.get('rating')?.dirty) && performanceForm.get('rating').errors">
+                                                    <span *ngIf="performanceForm.get('rating').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="performanceForm.get('rating').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                        <!--DELETE BUTTON-->
+                                        <td>
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <!--RESPONSIBILITY/GOAL-->
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="form-group"
+                                                 [ngClass]="{'has-error': (performanceForm.get('responsibility')?.touched || performanceForm.get('responsibility')?.dirty) && !performanceForm.get('responsibility').valid }">
+                                                <label class="control-label"
+                                                       attr.for="{{ 'responsibilityId' + i }}">
+                                                    Responibility/Goal:
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="{{ 'responsibilityId' + i }}"
+                                                          type="text"
+                                                          formControlName="responsibility"></textarea>
+                                                <span class="help-block" *ngIf="(performanceForm.get('responsibility')?.touched || performanceForm.get('responsibility')?.dirty) && performanceForm.get('responsibility').errors">
+                                                    <span *ngIf="performanceForm.get('responsibility').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="performanceForm.get('responsibility').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!--SUMMARY-->
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="form-group"
+                                                 [ngClass]="{'has-error': (performanceForm.get('summary')?.touched || performanceForm.get('summary')?.dirty) && !performanceForm.get('summary').valid }">
+                                                <label class="control-label"
+                                                       attr.for="{{ 'summaryId' + i }}">
+                                                    Summary of actual performance results:
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="{{ 'summaryId' + i }}"
+                                                          type="text"
+                                                          formControlName="summary"></textarea>
+                                                <span class="help-block" *ngIf="(performanceForm.get('summary')?.touched || performanceForm.get('summary')?.dirty) && performanceForm.get('summary').errors">
+                                                    <span *ngIf="performanceForm.get('summary').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="performanceForm.get('summary').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--SECTION 3-->
+                    <h4 style="font-weight: bold">Section III: CORE Values</h4>
+                    <p>(15% of overall rating; equally weighted)</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Indicate the Employee's performance level by assigning a rating for each CORE Value.</th>
+                                <th> Rating </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Teamwork</td>
+                                <td>
+                                    We work together to make San Antonio better.
+                                    We share goals and hold ourselves and each other accountable. We take ownership of
+                                    the team's work and personally commit to finding solutions. We communicate
+                                    effectively by sharing information, skills, and knowledge to achieve success. We reach
+                                    across teams for better outcomes. We support the growth and development of all
+                                    members of the team. We share and celebrate success by valuing and recognizing each
+                                    contribution.
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Integrity</td>
+                                <td>
+                                    We model ethical behavior.
+                                    We do the right thing, always. We appropriately question actions inconsistent with our
+                                    CORE Values. We make honesty and transparency the foundation for all actions. We are
+                                    accountable at all levels. We avoid the appearance of impropriety.
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Innovation</td>
+                                <td>
+                                    We are driven by continuous improvement.
+                                    We find ways to make things better. We optimize results by working smarter. We are
+                                    empowered to take risks, learn and grow. We learn from our failures and our successes.
+                                    We continually re-imagine operational processes for better results.
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Professionalis</td>
+                                <td>
+                                    We are qualified, skilled and committed.
+                                    We personally commit to continuous improvement and personal growth. We take pride
+                                    in producing high-quality work and in delivering exceptional service to internal and
+                                    external customers. We exhibit pride in professional appearance, language and behavior.
+                                    We assume responsibility for a clean and safe work area. We maintain composure in
+                                    challenging situations. We respect others, express sincere appreciation, and positively
+                                    influence those around us. We are dedicated ambassadors for the City of San Antonio
+                                    and the community.
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--SECTION 4-->
+                    <h4 style="font-weight: bold">Section IV: Leadership Assessment </h4>
+                    <p>(15% of overall rating; equally weighted)</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Indicate the Employee's performance level by assigning a rating for each attribute.</th>
+                                <th> Rating </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Leadership and Development</td>
+                                <td>
+                                    Leadership is clear, undisputed, and supported by team members
+                                    Handles conflict between team members quickly and effectively
+                                    Clearly communicates time lines and expectations to team members
+                                    Facilitates communication to ensure that team members are informed about issues,
+                                    progress, and next steps
+                                    Ensures team members have opportunities to develop their skills
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Strategic Thinking</td>
+                                <td>
+                                    Understands and uses financial indicators/metrics to measure performance
+                                    Identifies, recruits, and retains great talent that expands our capability and mirrors our
+                                    customer base
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Drives Excellence</td>
+                                <td>
+                                    Holds employees accountable for performance
+                                    Communicates with business partners at all levels regularly, accurately, and in detail
+                                    Focuses on process and operational consistency to reduce cost, improve performance,
+                                    and meet targeted budget goals
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Decision-Making</td>
+                                <td>
+                                    Causes and underlying issues are analyzed to fully understand situation/choices prior to
+                                    decision-making
+                                    Empowers team to solve problems and make decisions
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Professional Development Plan</td>
+                                <td>
+                                    Employee follow-through on the Professional Development Plan outlined in Section V
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!--SECTION 5-->
+                    <h4 style="font-weight: bold">Section V: Professional Development Plan</h4>
+                    <div formArrayName="section5" *ngFor="let section of section5.controls; let i=index">
+                        <div [formGroupName]="i">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">
+                                            Goals and Milestones: List specific goals for Professional Development the Employee will achieve over the next twelve
+                                            (12) months, and the time frame or target completion date for each objective. (Limit entries to one (1) objective per row.)
+                                        </th>
+                                        <th>
+                                            <div class="form-group">
+                                                <button class="btn btn-success"
+                                                        type="button"
+                                                        [disabled]="!section5.valid"
+                                                        (click)="addEntry5()">
+                                                    Add
+                                                </button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Entry: 1</td>
+                                        <!--TIME FRAME-->
+                                        <td colspan="2">
+                                            <div class="form-group row"
+                                                 [ngClass]="{'has-error': (performanceForm.get('time')?.touched || performanceForm.get('time')?.dirty) && !performanceForm.get('time').valid }">
+                                                <div class="col-50">
+                                                    <label class="control-label"
+                                                           attr.for="{{ 'timeId' + i }}">
+                                                        Time Frame or Target Completion Date:
+                                                    </label>
+                                                </div>
+                                                <div class="col-50">
+                                                    <input class="input-lg"
+                                                           id="{{ 'timeId' + i }}"
+                                                           type="text"
+                                                           formControlName="time" />
+                                                </div>
+                                                <span class="help-block" *ngIf="(performanceForm.get('time')?.touched || performanceForm.get('time')?.dirty) && performanceForm.get('time').errors">
+                                                    <span *ngIf="performanceForm.get('time').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="performanceForm.get('time').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                        <!--DELETE BUTTON-->
+                                        <td>
+                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        </td>
+                                    </tr>
+                                    <!--DESCRIPTION-->
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="form-group"
+                                                 [ngClass]="{'has-error': (performanceForm.get('summary')?.touched || performanceForm.get('summary')?.dirty) && !performanceForm.get('summary').valid }">
+                                                <textarea class="form-control"
+                                                          id="{{ 'summaryId' + i }}"
+                                                          type="text"
+                                                          formControlName="summary"></textarea>
+                                                <span class="help-block" *ngIf="(performanceForm.get('summary')?.touched || performanceForm.get('summary')?.dirty) && performanceForm.get('summary').errors">
+                                                    <span *ngIf="performanceForm.get('summary').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="performanceForm.get('summary').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--SECTION 6-->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Section VI: Narrative Summary and Assessment
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Rater Comments: (Write a brief description of overall performance for the review period, along with details of individual areas of
+                                    exceptional performance (rating of 3 or 4) or of performance needing more attention or improvement (rating of 1).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--SECTION 7-->
+                    <h4>Section VII: Comments (Optional)</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Reviewer Comments
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <textarea></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Employee Comments (Employee may comment on the performance evaluation in the space provided below)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <textarea></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <app-signature></app-signature>
+            </div>
+        </form>
+    </div>
+</div>

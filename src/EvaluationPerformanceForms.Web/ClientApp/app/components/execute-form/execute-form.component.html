@@ -1,0 +1,714 @@
+﻿<div class="row">
+    <div class="col-75">
+        <form class="container" (ngSubmit)="saveExecutiveForm()" [formGroup]="executiveForm">
+            <h1 class="text-center">City of San Antonio</h1>
+            <h2 class="text-center">Employee Performance Evaluation</h2>
+            <h3 class="text-center pbot">Executive Level</h3>
+            <div class="row">
+                <!--BASIC INFO SECTION-->
+                <!--FIRST ROW OF CONTENT-->
+                <div class="col-50">
+                    <!-- NAME FIELD -->
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (executiveForm.get('name')?.touched || executiveForm.get('name')?.dirty) && !executiveForm.get('name').valid }">
+                        <label class="control-label"
+                               for="nameId">
+                            Employee Name
+                        </label>
+                        <input class="form-control"
+                               id="nameId"
+                               type="text"
+                               placeholder="Full Name (required)"
+                               formControlName="name" />
+                        <span class="help-block" *ngIf="(executiveForm.get('name')?.touched || executiveForm.get('name')?.dirty) && executiveForm.get('name').errors">
+                            <span *ngIf="executiveForm.get('name').errors.required">
+                                Please enter your full name. <!--Error messages-->
+                            </span>
+                            <span *ngIf="executiveForm.get('name').errors.minlength">
+                                Name must be longer than 3 characters. <!--Error messages-->
+                            </span>
+                        </span>
+                    </div>
+                    <!-- TITLE FIELD -->
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (executiveForm.get('title')?.touched || executiveForm.get('title')?.dirty) && !executiveForm.get('title').valid }">
+                        <label class="control-label"
+                               for="titleId">
+                            Title
+                        </label>
+
+                        <input class="form-control"
+                               id="titleId"
+                               type="text"
+                               placeholder="Title (required)"
+                               formControlName="title" />
+                        <span class="help-block" *ngIf="(executiveForm.get('title')?.touched || executiveForm.get('title')?.dirty) && executiveForm.get('title').errors">
+                            <span *ngIf="executiveForm.get('title').errors.required">
+                                Please enter your title.
+                            </span>
+                            <span *ngIf="executiveForm.get('title').errors.minlength">
+                                Title must be longer than 3 characters.
+                            </span>
+                        </span>
+                    </div>
+                    <!--DEPARTMENT FIELD -->
+                    <!--<div class="form-group"
+             [ngClass]="{'has-error': (executiveForm.get('department')?.touched || executiveForm.get('department')?.dirty) && !executiveForm.get('department').valid }">
+            <label class="control-label"
+                   for="departmentId">
+                Department
+            </label>
+
+            <input class="form-control"
+                   id="departmentId"
+                   type="text"
+                   placeholder="Department (required)"
+                   formControlName="department" />
+            <span class="help-block" *ngIf="(executiveForm.get('department')?.touched || executiveForm.get('department')?.dirty) && executiveForm.get('department').errors">
+                <span *ngIf="executiveForm.get('department').errors.required">
+                    Please enter your department.
+                </span>
+                <span *ngIf="executiveForm.get('department').errors.minlength">
+                    Department must be longer than 3 characters.
+                </span>
+            </span>
+        </div>-->
+                    <label for="adr"><i class="fa fa-address-card-o"></i> Department:</label>
+                    <select class="form-control" id="sel1">
+                        <option></option>
+                        <option>Human Resources</option>
+                        <option>Library</option>
+                        <option>Information Technology</option>
+                    </select>
+                    <br>
+                    <label for="city"><i class="fa fa-institution"></i> Review Type:</label>
+                    <div class="row">
+                        <div class="col-50">
+                            <label for="state">
+                                Planning
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-50">
+                            <label for="zip">
+                                Annual
+                                <input type="radio" name="radio">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <br>
+                    <label for="city"><i class="fa fa-institution"></i> Supervisor or Above? </label>
+                    <div class="row">
+                        <div class="col-50">
+                            <label for="state">
+                                Yes
+                                <input type="radio" name="radio2">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                        <div class="col-50">
+                            <label for="zip">
+                                No
+                                <input type="radio" name="radio2">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <!--REVIEW TYPE FIELD -->
+                    <!--<div class="form-group"
+             [ngClass]="{'has-error': (executiveForm.get('reviewType')?.touched || executiveForm.get('reviewType')?.dirty) && !executiveForm.get('reviewType').valid }">
+            <label class="control-label"
+                   for="reviewTypeId">
+                Review Type
+            </label>
+
+            <input class="form-control"
+                   id="reviewTypeId"
+                   type="text"
+                   placeholder="Review Type (required)"
+                   formControlName="reviewType" />
+            <span class="help-block" *ngIf="(executiveForm.get('reviewType')?.touched || executiveForm.get('reviewType')?.dirty) && executiveForm.get('reviewType').errors">
+                <span *ngIf="executiveForm.get('reviewType').errors.required">
+                    Please enter the review type.
+                </span>
+                <span *ngIf="executiveForm.get('reviewType').errors.minlength">
+                    Review type must be longer than 3 characters.
+                </span>
+            </span>
+        </div>-->
+                    <br>
+                </div>
+                <!--SECOND ROW OF CONTENT-->
+                <div class="col-50">
+                    <!-- SAP # FIELD -->
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (executiveForm.get('sapNum')?.touched || executiveForm.get('sapNum')?.dirty) && !executiveForm.get('sapNum').valid }">
+                        <label class="control-label"
+                               for="sapNumId">
+                            SAP #
+                        </label>
+                        <input class="form-control"
+                               id="sapNumId"
+                               type="text"
+                               placeholder="SAP # (required)"
+                               formControlName="sapNum" />
+                        <span class="help-block" *ngIf="(executiveForm.get('sapNum')?.touched || executiveForm.get('sapNum')?.dirty) && executiveForm.get('sapNum').errors">
+                            <span *ngIf="executiveForm.get('sapNum').errors.required">
+                                Please enter your SAP #.
+                            </span>
+                            <span *ngIf="executiveForm.get('sapNum').errors.minlength">
+                                SAP # must be longer than 3 characters.
+                            </span>
+                        </span>
+                    </div>
+                    <!--REPORTING PERIOD FIELD -->
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (executiveForm.get('period')?.touched || executiveForm.get('period')?.dirty) && !executiveForm.get('period').valid }">
+                        <label class="control-label"
+                               for="periodId">
+                            Reporting Period
+                        </label>
+                        <input class="form-control"
+                               id="periodId"
+                               type="text"
+                               placeholder="Reporting Period (required)"
+                               formControlName="period" />
+                        <span class="help-block" *ngIf="(executiveForm.get('period')?.touched || executiveForm.get('period')?.dirty) && executiveForm.get('period').errors">
+                            <span *ngIf="executiveForm.get('period').errors.required">
+                                Please enter the reporting period.
+                            </span>
+                            <span *ngIf="executiveForm.get('period').errors.minlength">
+                                Reporting period must be longer than 3 characters.
+                            </span>
+                        </span>
+                    </div>
+                    <!--DIVIOSION FIELD -->
+                    <div class="form-group"
+                         [ngClass]="{'has-error': (executiveForm.get('division')?.touched || executiveForm.get('division')?.dirty) && !executiveForm.get('division').valid }">
+                        <label class="control-label"
+                               for="divisionId">
+                            Division
+                        </label>
+                        <input class="form-control"
+                               id="divisionId"
+                               type="text"
+                               placeholder="Division (required)"
+                               formControlName="division" />
+                        <span class="help-block" *ngIf="(executiveForm.get('division')?.touched || executiveForm.get('division')?.dirty) && executiveForm.get('division').errors">
+                            <span *ngIf="executiveForm.get('division').errors.required">
+                                Please enter your division.
+                            </span>
+                            <span *ngIf="executiveForm.get('division').errors.minlength">
+                                Division must be longer than 3 characters.
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="tcontent">
+                    <!--RATING INSTRUCTIONS-->
+                    <h4 style="font-weight: bold">Rating Descriptions</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>1 - Improvement Needed</th>
+                                <th>2 - Achieves Expectations</th>
+                                <th>3 - Exceeds Expectations</th>
+                                <th>4 - Outstanding </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Does not meet the requirements of the job, task or project. Improvement is needed.</td>
+                                <td>Successfully meets the requirements of the job, task or project. Performance consistently meets standards.</td>
+                                <td>
+                                    Exceeds the
+                                    requirements of the job,
+                                    task or project. Performance is
+                                    characterized by consistent high
+                                    achievement.
+                                </td>
+                                <td>
+                                    Far exceeds the requirements of the
+                                    job, task or project. Performance
+                                    consistently shows outstanding
+                                    achievement far above expectations.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--SECTION 2-->
+                    <h4 style="font-weight: bold">Section II: Responsibilities, Goals, Measures</h4>
+                    <p>(50% of overall rating; evaluation weight assigned)</p>
+                    <div formArrayName="section2" *ngFor="let section of section2.controls; let i=index">
+                        <div [formGroupName]="i">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th colspan="4">
+                                            Responsibilities, Goals, and Measures: Each entry in this table contains 4 items: A description of the responsibility/goal that includes
+                                            any specific performance metric or project deadline; a specific weight percentage component; a summary of the actual performance
+                                            results; and the rating for this entry.
+                                        </th>
+                                        <th>
+                                            <div class="form-group">
+                                                <button class="btn btn-success"
+                                                        type="button"
+                                                        [disabled]="!section2.valid"
+                                                        (click)="addEntry2()">
+                                                    Add Entry
+                                                </button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Entry: 1</td>
+                                        <!--PERCENTAGE-->
+                                        <td colspan="2">
+                                            <div class="form-group row"
+                                                 [ngClass]="{'has-error': (executiveForm.get('twoPercent')?.touched || executiveForm.get('twoPercent')?.dirty) && !executiveForm.get('twoPercent').valid }">
+                                                <div class="col-50">
+                                                    <label class="control-label"
+                                                           attr.for="{{ 'percentId' + i }}">
+                                                        Item Evaluation Weight Percentage (total of all weights=100%):
+                                                    </label>
+                                                </div>
+                                                <div class="col-50">
+                                                    <input class="input-sm"
+                                                           id="{{ 'percentId' + i }}"
+                                                           type="text"
+                                                           formControlName="twoPercent" />
+                                                </div>
+                                                <span class="help-block" *ngIf="(executiveForm.get('twoPercent')?.touched || executiveForm.get('twoPercent')?.dirty) && executiveForm.get('twoPercent').errors">
+                                                    <span *ngIf="executiveForm.get('twoPercent').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="executiveForm.get('twoPercent').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                        <!--RATING-->
+                                        <td>
+                                            <div class="form-group row"
+                                                 [ngClass]="{'has-error': (executiveForm.get('twoRating')?.touched || executiveForm.get('twoRating')?.dirty) && !executiveForm.get('twoRating').valid }">
+                                                <div class="col-50">
+                                                    <label class="control-label"
+                                                           attr.for="{{ 'ratingId' + i }}">
+                                                        Rating:
+                                                    </label>
+                                                </div>
+                                                <div class="col-50">
+                                                    <input class="input-sm"
+                                                           id="{{ 'ratingId' + i }}"
+                                                           type="text"
+                                                           formControlName="twoRating" />
+                                                </div>
+                                                <span class="help-block" *ngIf="(executiveForm.get('twoRating')?.touched || executiveForm.get('twoRating')?.dirty) && executiveForm.get('twoRating').errors">
+                                                    <span *ngIf="executiveForm.get('twoRating').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="executiveForm.get('twoRating').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                        <!--DELETE BUTTON-->
+                                        <td>
+                                            <button class="btn btn-danger"
+                                                    type="button"
+                                                    (click)="deleteEntry2()">
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!--RESPONSIBILITY/GOAL-->
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="form-group"
+                                                 [ngClass]="{'has-error': (executiveForm.get('twoResponsibility')?.touched || executiveForm.get('twoResponsibility')?.dirty) && !executiveForm.get('twoResponsibility').valid }">
+                                                <label class="control-label"
+                                                       attr.for="{{ 'responsibilityId' + i }}">
+                                                    Responibility/Goal:
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="{{ 'responsibilityId' + i }}"
+                                                          type="text"
+                                                          formControlName="twoResponsibility"></textarea>
+                                                <span class="help-block" *ngIf="(executiveForm.get('twoResponsibility')?.touched || executiveForm.get('twoResponsibility')?.dirty) && executiveForm.get('twoResponsibility').errors">
+                                                    <span *ngIf="executiveForm.get('twoResponsibility').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="executiveForm.get('twoResponsibility').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!--SUMMARY-->
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="form-group"
+                                                 [ngClass]="{'has-error': (executiveForm.get('twoSummary')?.touched || executiveForm.get('twoSummary')?.dirty) && !executiveForm.get('twoSummary').valid }">
+                                                <label class="control-label"
+                                                       attr.for="{{ 'summaryId' + i }}">
+                                                    Summary of actual performance results:
+                                                </label>
+                                                <textarea class="form-control"
+                                                          id="{{ 'summaryId' + i }}"
+                                                          type="text"
+                                                          formControlName="twoSummary"></textarea>
+                                                <span class="help-block" *ngIf="(executiveForm.get('twoSummary')?.touched || executiveForm.get('twoSummary')?.dirty) && executiveForm.get('twoSummary').errors">
+                                                    <span *ngIf="executiveForm.get('twoSummary').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="executiveForm.get('twoSummary').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--SECTION 3-->
+                    <h4 style="font-weight: bold">Section III: CORE Values</h4>
+                    <p>(15% of overall rating; equally weighted)</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Indicate the Employee's performance level by assigning a rating for each CORE Value.</th>
+                                <th> Rating </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Teamwork</td>
+                                <td>
+                                    We work together to make San Antonio better.
+                                    We share goals and hold ourselves and each other accountable. We take ownership of
+                                    the team's work and personally commit to finding solutions. We communicate
+                                    effectively by sharing information, skills, and knowledge to achieve success. We reach
+                                    across teams for better outcomes. We support the growth and development of all
+                                    members of the team. We share and celebrate success by valuing and recognizing each
+                                    contribution.
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="teamworkRating" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Integrity</td>
+                                <td>
+                                    We model ethical behavior.
+                                    We do the right thing, always. We appropriately question actions inconsistent with our
+                                    CORE Values. We make honesty and transparency the foundation for all actions. We are
+                                    accountable at all levels. We avoid the appearance of impropriety.
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="integRating" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Innovation</td>
+                                <td>
+                                    We are driven by continuous improvement.
+                                    We find ways to make things better. We optimize results by working smarter. We are
+                                    empowered to take risks, learn and grow. We learn from our failures and our successes.
+                                    We continually re-imagine operational processes for better results.
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="innovaRating" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Professionalism</td>
+                                <td>
+                                    We are qualified, skilled and committed.
+                                    We personally commit to continuous improvement and personal growth. We take pride
+                                    in producing high-quality work and in delivering exceptional service to internal and
+                                    external customers. We exhibit pride in professional appearance, language and behavior.
+                                    We assume responsibility for a clean and safe work area. We maintain composure in
+                                    challenging situations. We respect others, express sincere appreciation, and positively
+                                    influence those around us. We are dedicated ambassadors for the City of San Antonio
+                                    and the community.
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="profRating" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--SECTION 4-->
+                    <h4 style="font-weight: bold">Section IV: Leadership Assessment </h4>
+                    <p>(15% of overall rating; equally weighted)</p>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Indicate the Employee's performance level by assigning a rating for each attribute.</th>
+                                <th> Rating </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Leadership and Development</td>
+                                <td>
+                                    Leadership is clear, undisputed, and supported by team members
+                                    Handles conflict between team members quickly and effectively
+                                    Clearly communicates time lines and expectations to team members
+                                    Facilitates communication to ensure that team members are informed about issues,
+                                    progress, and next steps
+                                    Ensures team members have opportunities to develop their skills
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="ladRating" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Strategic Thinking</td>
+                                <td>
+                                    Understands and uses financial indicators/metrics to measure performance
+                                    Identifies, recruits, and retains great talent that expands our capability and mirrors our
+                                    customer base
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="stratRating" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Drives Excellence</td>
+                                <td>
+                                    Holds employees accountable for performance
+                                    Communicates with business partners at all levels regularly, accurately, and in detail
+                                    Focuses on process and operational consistency to reduce cost, improve performance,
+                                    and meet targeted budget goals
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="excellenceRating" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Decision-Making</td>
+                                <td>
+                                    Causes and underlying issues are analyzed to fully understand situation/choices prior to
+                                    decision-making
+                                    Empowers team to solve problems and make decisions
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="decisionRating" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Professional Development Plan</td>
+                                <td>
+                                    Employee follow-through on the Professional Development Plan outlined in Section V
+                                </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           formControlName="pdpRating" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!--SECTION 5-->
+                    <h4 style="font-weight: bold">Section V: Professional Development Plan</h4>
+                    <div formArrayName="section5" *ngFor="let section of section5.controls; let i=index">
+                        <div [formGroupName]="i">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th colspan="3">
+                                            Goals and Milestones: List specific goals for Professional Development the Employee will achieve over the next twelve
+                                            (12) months, and the time frame or target completion date for each objective. (Limit entries to one (1) objective per row.)
+                                        </th>
+                                        <th>
+                                            <div class="form-group">
+                                                <button class="btn btn-success"
+                                                        type="button"
+                                                        [disabled]="!section5.valid"
+                                                        (click)="addEntry5()">
+                                                    Add
+                                                </button>
+                                            </div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Entry: 1</td>
+                                        <!--TIME FRAME-->
+                                        <td colspan="2">
+                                            <div class="form-group row"
+                                                 [ngClass]="{'has-error': (executiveForm.get('fiveTime')?.touched || executiveForm.get('fiveTime')?.dirty) && !executiveForm.get('fiveTime').valid }">
+                                                <div class="col-50">
+                                                    <label class="control-label"
+                                                           attr.for="{{ 'timeId' + i }}">
+                                                        Time Frame or Target Completion Date:
+                                                    </label>
+                                                </div>
+                                                <div class="col-50">
+                                                    <input class="input-lg"
+                                                           id="{{ 'timeId' + i }}"
+                                                           type="text"
+                                                           formControlName="fiveTime" />
+                                                </div>
+                                                <span class="help-block" *ngIf="(executiveForm.get('fiveTime')?.touched || executiveForm.get('fiveTime')?.dirty) && executiveForm.get('fiveTime').errors">
+                                                    <span *ngIf="executiveForm.get('fiveTime').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="executiveForm.get('fiveTime').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                        <!--DELETE BUTTON-->
+                                        <td>
+                                            <button class="btn btn-danger"
+                                                    type="button"
+                                                    (click)="deleteEntry5()">
+                                                Delete
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!--DESCRIPTION-->
+                                    <tr>
+                                        <td colspan="5">
+                                            <div class="form-group"
+                                                 [ngClass]="{'has-error': (executiveForm.get('fiveSummary')?.touched || executiveForm.get('fiveSummary')?.dirty) && !executiveForm.get('fiveSummary').valid }">
+                                                <textarea class="form-control"
+                                                          id="{{ 'summaryId' + i }}"
+                                                          type="text"
+                                                          formControlName="fiveSummary"></textarea>
+                                                <span class="help-block" *ngIf="(executiveForm.get('fiveSummary')?.touched || executiveForm.get('fiveSummary')?.dirty) && executiveForm.get('fiveSummary').errors">
+                                                    <span *ngIf="executiveForm.get('fiveSummary').errors.required">
+                                                        Please enter your full name.
+                                                    </span>
+                                                    <span *ngIf="executiveForm.get('fiveSummary').errors.minlength">
+                                                        Name must be longer than 3 characters.
+                                                    </span>
+                                                </span>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!--SECTION 6-->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Section VI: Narrative Summary and Assessment
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Rater Comments: (Write a brief description of overall performance for the review period, along with details of individual areas of
+                                    exceptional performance (rating of 3 or 4) or of performance needing more attention or improvement (rating of 1).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <textarea class="form-control"
+                                              type="text"
+                                              formControlName="sixSummary"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--SECTION 7-->
+                    <h4>Section VII: Comments (Optional)</h4>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Reviewer Comments
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <textarea class="form-control"
+                                              type="text"
+                                              formControlName="revComments"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Employee Comments (Employee may comment on the performance evaluation in the space provided below)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <textarea class="form-control"
+                                              type="text"
+                                              formControlName="employeeComments"></textarea>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <app-signature></app-signature>
+                <!--BUTTON GROUP-->
+                <div class="container">
+                    <div class="form-group btgroup">
+                        <button class="btn btn-primary"
+                                type="submit"
+                                style="width:80px;margin-right:10px"
+                                [disabled]='!executiveForm.valid'>
+                            Save
+                        </button>
+                        <button class="btn btn-default"
+                                type="button"
+                                (click)="populateTestData()">
+                            Test Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

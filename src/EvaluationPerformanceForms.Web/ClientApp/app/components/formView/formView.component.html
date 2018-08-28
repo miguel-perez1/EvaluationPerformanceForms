@@ -1,0 +1,34 @@
+﻿<div class="bd">
+    <div class="container-fluid">
+        <h3>Please select a form:</h3>
+        <div class="row">
+            <div class="col-md-4">
+                <h4 class="text-center">Executive</h4>
+                <img src="executive.png" class="img-thumbnail png center-block">
+                <div class="space">
+                    <a class="btn btn-default center-block" [routerLink]="['/executive/0']" style="width:80px">
+                        Select
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-center">Performance</h4>
+                <img src="performance.png" class="img-thumbnail png center-block">
+                <div class="space">
+                    <a class="btn btn-default center-block" (click)="goPerf()" style="width:80px">
+                        Select
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h4 class="text-center">Step Play Plan</h4>
+                <img src="steppayplan.png" class="img-thumbnail png center-block">
+                <div class="space">
+                    <a class="btn btn-default center-block" (click)="goStep()" style="width:80px">
+                        Select
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

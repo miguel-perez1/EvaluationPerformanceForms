@@ -1,0 +1,41 @@
+﻿/*.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+/*}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.wrapper {
+    text-align: center;
+}
+
+.button1 {
+    height: 50px;
+    width: 100px;
+    background-color: aqua;
+}
+
+.bd{
+    padding: 20px 50px 20px 50px;
+}
+.png{
+    width: 80%;
+    height: 80%;
+}
+.buttons {
+    height: 50px;
+    width: 100px;
+    background-color: aqua;
+}
+.text {
+    height: 50px;
+    width: 100px;
+    color: aqua;
+}
+.space{
+    padding-top: 20px;
+}*/

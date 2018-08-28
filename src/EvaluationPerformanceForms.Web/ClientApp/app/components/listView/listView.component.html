@@ -1,0 +1,45 @@
+﻿<div class='panel panel-primary'>
+    <div class='panel-heading'>
+        {{pageTitle}}
+    </div>
+
+    <!-- Filter the Info   -->
+    <div class='panel-body'>
+
+        <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+
+        <div class='table-responsive'>
+            <table class='table'
+                   *ngIf='executives && executives.length'>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>SAP #</th>
+                        <th>Form Type</th>
+                        <th>Date Modified</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let executive of executives'>
+                        <td>
+                            <a [routerLink]="['/executive', executive.id]">
+                                {{executive.name}}
+                            </a>
+                        </td>
+                        <td>{{ executive.sapNum }}</td>
+                        <td>{{ executive.period }}</td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a class="btn btn-primary"
+                               [routerLink]="['/executive', executive.id]">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

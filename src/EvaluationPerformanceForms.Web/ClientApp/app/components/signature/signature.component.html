@@ -1,0 +1,142 @@
+﻿<div class="container">
+    <form novalidate
+          (ngSubmit)="save()"
+          [formGroup]="signatureForm">
+        <fieldset>
+            <h4>Supervisor/Manager Signature</h4>
+            <div class="row">
+                <!--FIRST ROW OF CONTENT-->
+                <div class="col-75 table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Supervisor/Manager Signature</td>
+                                <td rowspan="2">
+                                    <input class="form-control"
+                                           type="text"
+                                           placeholder="Full Name (required)" />
+                                </td>
+                                <td>Date: </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           placeholder="Date dd/mm/yyyy" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SAP #: </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           placeholder="SAP #" />
+                                </td>
+                            </tr>
+                            <!--OTHER MANGER-->
+                            <tr>
+                                <td rowspan="2">
+                                    Reviewing Officer
+                                    Signature:
+                                </td>
+                                <td rowspan="2">
+                                    <input class="form-control"
+                                           type="text"
+                                           placeholder="Full Name (required)" />
+                                </td>
+                                <td>Date: </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           placeholder="Date dd/mm/yyyy" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>SAP #: </td>
+                                <td>
+                                    <input class="form-control"
+                                           type="text"
+                                           placeholder="SAP #" />
+                                </td>
+                            </tr>
+                            <!--EMPLOYEE SIGNATURE-->
+                            <tr>
+                                <td rowspan="2">
+                                    Employee Signature:
+                                </td>
+                                <td rowspan="2">
+                                    <input class="form-control"
+                                           type="text"
+                                           placeholder="Full Name (required)" />
+                                </td>
+                                <td>Date: </td>
+                                <td rowspan="2">
+                                    <input class="form-control"
+                                           type="text"
+                                           placeholder="Date dd/mm/yyyy" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--SECOND ROW OF CONTENT-->
+                <div class="col-25">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th colspan="2">Overall Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="wrap">
+4 - Outstanding
+3 - Exceeds Expectations
+2 - Achieves Expectations
+1 - Improvement Needed
+                                </td>
+                                <td>
+                                    <div class="form-group">
+                                        <label for="sel1">Select list:</label>
+                                        <select class="form-control" id="sel1">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row tcontent">
+                <table class="table table-bordered">
+                    <thead>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <input type="radio" name="radio2">
+                                <span>Agree with Rating</span>
+                            </td>
+                            <td colpan="2">
+                                <input type="radio" name="radio2">
+                                <span>Disagree with Rating</span>
+                            </td>
+                            <td colspan="2" class="col-md-8 wrap">
+• Signing your performance evaluation acknowledges the evaluation has been discussed with you.
+• If you disagree with the overall rating, you may submit an appeal in writing to the Reviewer listed
+above, using the Appeal Form found on FormsNet.
+• Appeal must be received by the Reviewing Officer within ten (10) working days beginning the day
+after the employee receives this evaluation or when a witness signs that the employee received this
+evaluation.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </fieldset>
+    </form>
+</div>

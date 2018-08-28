@@ -1,0 +1,49 @@
+﻿
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    margin: 0 -16px;
+}
+
+.col-50 {
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+    padding: 0 16px;
+}
+
+.container {
+    padding: 5px 20px 15px 20px;
+}
+
+.btgroup {
+    position: center;
+}
+.tcontent {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.wrap {
+    white-space: pre-wrap;
+}
+table.table-bordered {
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+    table.table-bordered > thead > tr > th {
+        border: 1px solid black;
+    }
+
+    table.table-bordered > tbody > tr > td {
+        border: 1px solid black;
+    }
+th {
+    background-color: #49dbfc;
+} 
