@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +33,7 @@
     <None Remove="ClientApp\app\components\signature\signature.ts" />
     <None Remove="ClientApp\app\components\step_plan-form\StepPayPlan.ts" />
     <None Remove="ClientApp\app\models\appeal-form.ts" />
+    <None Remove="ClientApp\app\models\executive-form.ts" />
     <None Remove="ClientApp\app\shared\DateValidation.ts" />
   </ItemGroup>
 
@@ -40,6 +42,7 @@
     <TypeScriptCompile Include="ClientApp\app\components\signature\signature.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\step_plan-form\StepPayPlan.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\appeal-form.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\executive-form.ts" />
     <TypeScriptCompile Include="ClientApp\app\shared\DateValidation.ts" />
     <None Remove="ClientApp\app\components\fetchdata\fetchdata.component.ts" />
   </ItemGroup>

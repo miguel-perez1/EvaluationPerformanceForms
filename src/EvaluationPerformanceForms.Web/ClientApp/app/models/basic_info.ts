@@ -1,12 +1,12 @@
-﻿export class Basic {
+﻿//export class Basic {
 
-    constructor(
-        public name = '',
-        public title = '',
-        public department = '',
-        public period = '',
-        public division = '',
-        public reviewType = '',
-        public sapNum = ''
-    ) { }
-}
+//    constructor(
+//        public name = '',
+//        public title = '',
+//        public department = '',
+//        public period = '',
+//        public division = '',
+//        public reviewType = '',
+//        public sapNum = ''
+//    ) { }
+//}

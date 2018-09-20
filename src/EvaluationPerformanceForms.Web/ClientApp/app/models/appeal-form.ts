@@ -1,3 +1,3 @@
-﻿export class Appeal {
-    constructor () {}
-}
+﻿//export class Appeal {
+//    constructor () {}
+//}

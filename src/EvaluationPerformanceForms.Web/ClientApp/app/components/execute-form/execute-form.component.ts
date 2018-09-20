@@ -52,10 +52,10 @@ export class ExecuteFormComponent implements OnInit{
             //basic
             name: ['', [Validators.required, Validators.minLength(3)]],
             title: ['', [Validators.required, Validators.minLength(3)]],
-            department: ['', [Validators.required, Validators.minLength(3)]],
+            department: [''],
             period: ['', [Validators.required, Validators.minLength(3)]],
             division: ['', [Validators.required, Validators.minLength(3)]],
-            reviewType: ['', [Validators.required, Validators.minLength(3)]],
+            reviewType: [''],
             sapNum: ['', [Validators.required, Validators.minLength(3)]],
             //section2
             section2: this.fb.array([this.buildEntry2()]),
@@ -105,7 +105,7 @@ export class ExecuteFormComponent implements OnInit{
     }
     buildEntry2(): FormGroup {
         return this.fb.group({
-            twoPercent: ['', [Validators.required, Validators.minLength(3)]],
+            twoPercent: this.fb.array([]),
             twoRating: ['', ratingRange(1, 4)],
             twoResponsibility: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
             twoSummary: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]]
@@ -154,13 +154,43 @@ export class ExecuteFormComponent implements OnInit{
             this.pageTitle = `Edit Basic Info: ${this.executive.name}`;
         }
 
+        const secTwoGroup = this.fb.group({
+            twoPercent: this.executive.twoPercent,
+            twoRating: this.executive.twoRating,
+            twoResponsibility: this.executive.twoResponsibility,
+            twoSummary: this.executive.twoSummary
+        });
+
+        const secFiveGroup = this.fb.group({
+            fiveTime: this.executive.fiveTime,
+            fiveSummary: this.executive.fiveSummary,
+        });
+
         // Update the data on the form
         this.executiveForm.patchValue({
             name: this.executive.name,
             title: this.executive.title,
             division: this.executive.division,
-            sapNum: this.executive.sapNum
+            sapNum: this.executive.sapNum,
+            period: this.executive.period,
+            //twoRating: this.executive.twoRating,
+            //twoResponsibility: this.executive.twoResponsibility,
+            //twoSummary: this.executive.twoSummary,
+            teamworkRating: this.executive.teamworkRating,
+            integRating: this.executive.integRating,
+            innovaRating: this.executive.innovaRating,
+            profRating: this.executive.profRating,
+            ladRating: this.executive.ladRating,
+            stratRating: this.executive.stratRating,
+            excellenceRating: this.executive.excellenceRating,
+            decisionRating: this.executive.decisionRating,
+            pdpRating: this.executive.pdpRating,
+            sixSummary: this.executive.stratRating,
+            revComments: this.executive.revComments,
+            employeeComments: this.executive.employeeComments
         });
+        this.executiveForm.setControl('section2', this.fb.array([secTwoGroup]));
+        this.executiveForm.setControl('section5', this.fb.array([secFiveGroup]));
     }
     save() {
         console.log(this.executiveForm);

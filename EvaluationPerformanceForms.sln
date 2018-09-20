@@ -4,9 +4,11 @@ VisualStudioVersion = 15.0.27428.2015
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationPerformanceForms.Web", "src\EvaluationPerformanceForms.Web\EvaluationPerformanceForms.Web.csproj", "{776C595D-F85C-4DEA-B9F5-82FE68CCD2C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationPerformanceForms.Data", "src\EvaluationPerformanceForms.Data\EvaluationPerformanceForms.Data.csproj", "{829CCD53-1821-41D0-A11B-2D70843C9B5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationPerformanceForms.Domain", "src\EvaluationPerformanceForms.Data\EvaluationPerformanceForms.Domain.csproj", "{829CCD53-1821-41D0-A11B-2D70843C9B5E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationPerformanceForms.Application", "src\EvaluationPerformanceForms.Application\EvaluationPerformanceForms.Application.csproj", "{A30DA386-1D33-4E59-AEBB-5F8C10AFDADE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvaluationPerformanceForms.Infrastructure", "src\EvaluationPerformanceForms.Infrastructure\EvaluationPerformanceForms.Infrastructure.csproj", "{2CE510ED-ADFA-4ABE-8D80-B035868E7078}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,10 @@ Global
 		{A30DA386-1D33-4E59-AEBB-5F8C10AFDADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A30DA386-1D33-4E59-AEBB-5F8C10AFDADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A30DA386-1D33-4E59-AEBB-5F8C10AFDADE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CE510ED-ADFA-4ABE-8D80-B035868E7078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CE510ED-ADFA-4ABE-8D80-B035868E7078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CE510ED-ADFA-4ABE-8D80-B035868E7078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CE510ED-ADFA-4ABE-8D80-B035868E7078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

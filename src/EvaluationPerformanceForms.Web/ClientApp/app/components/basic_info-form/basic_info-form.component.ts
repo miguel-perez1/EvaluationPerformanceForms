@@ -1,8 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { Basic } from '../../models/basic_info';
-
 @Component({
     selector: 'app-basic_info-form',
     templateUrl: './basic_info-form.component.html',
@@ -12,7 +10,6 @@ import { Basic } from '../../models/basic_info';
 export class Basic_infoFormComponent implements OnInit {
     /** execute-form ctor */
     basicForm: FormGroup;
-    basic: Basic = new Basic();
 
     constructor(private fb: FormBuilder) { }
 
